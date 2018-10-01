@@ -1,10 +1,19 @@
+import os
 
-with open("cnf.txt", "a+") as f:
+with open("cnf.txt", "w") as f:
 
     f.write ("p cnf 729 36450 \n")
 
     def index(i,j,k):
         return ((i)*9+j)*9+k+1
+
+
+    for i in range (9):
+          for j in range (9):
+              k=input()
+              k=k-1
+              f.write (str(index(i,j,k))+" 0\n")
+
 
     for x in range (9):
         for y in range (9):
@@ -57,5 +66,22 @@ with open("cnf.txt", "a+") as f:
                             if ((x1 != x2) or (y1 != y2)):
                                 for z in range (9):
                                     f.write ("-"+str(index(x1,y1,z))+" -"+str(index(x2,y2,z))+" 0\n")
-
 f.close ()
+os.system("minisat cnf.txt out.txt")
+
+with open("out.txt", "r") as fo:
+    outp = fo.read().rsplit("\n")
+
+    if outp[0] == "SAT":
+        var = outp[1].rsplit(" ")
+        print("Satisfiable")
+        for i in range(9):
+            for j in range(9):
+
+                for k in range(9):
+                    if (int(var[index(i,j,k)-1]) > 0):
+                        print (k+1),
+                        continue;
+            print("\n")
+    else:
+        print ("Unsatisfiable")
