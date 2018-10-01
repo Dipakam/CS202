@@ -8,11 +8,12 @@ with open("cnf.txt", "w") as f:
         return ((i)*9+j)*9+k+1
 
 
+    k=input()
+    var=k.rsplit(" ")
     for i in range (9):
-          for j in range (9):
-              k=input()
-              k=k-1
-              f.write (str(index(i,j,k))+" 0\n")
+        for j in range (9):
+            if (int(var[9*i+j])>0):
+                f.write(str(index(i,j,int(var[9*i+j])))+" 0\n")
 
 
     for x in range (9):
@@ -80,7 +81,7 @@ with open("out.txt", "r") as fo:
 
                 for k in range(9):
                     if (int(var[index(i,j,k)-1]) > 0):
-                        print (k+1),
+                        print (k+1,end = "")
                         continue;
             print("\n")
     else:
