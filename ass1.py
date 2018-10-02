@@ -75,3 +75,5 @@ with open("out.txt", "r") as fo:
                         print (k+1),
                         continue;
             print("\n")
+    else:
+        print ("Unsatisfiable")
