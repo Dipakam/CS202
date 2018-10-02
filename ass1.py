@@ -60,3 +60,18 @@ with open("cnf.txt", "w") as f:
                                     f.write ("-"+str(index(x1,y1,z))+" -"+str(index(x2,y2,z))+" 0\n")
 f.close ()
 os.system("minisat cnf.txt out.txt")
+
+with open("out.txt", "r") as fo:
+    outp = fo.read().rsplit("\n")
+
+    if outp[0] == "SAT":
+        var = outp[1].rsplit(" ")
+        print("Satisfiable")
+        for i in range(9):
+            for j in range(9):
+
+                for k in range(9):
+                    if (int(var[index(i,j,k)-1]) > 0):
+                        print (k+1),
+                        continue;
+            print("\n")
