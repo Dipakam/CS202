@@ -1,5 +1,6 @@
+import os
 
-with open("cnf.txt", "a+") as f:
+with open("cnf.txt", "w") as f:
 
     f.write ("p cnf 729 36450 \n")
 
@@ -57,5 +58,5 @@ with open("cnf.txt", "a+") as f:
                             if ((x1 != x2) or (y1 != y2)):
                                 for z in range (9):
                                     f.write ("-"+str(index(x1,y1,z))+" -"+str(index(x2,y2,z))+" 0\n")
-
 f.close ()
+os.system("minisat cnf.txt out.txt")
