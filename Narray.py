@@ -79,7 +79,7 @@ def test(a):
             for y in range (9):
                 if (x < y):
                     for z in range (9):
-                        f.write ("-"+str(index(x,10-x,z))+" -"+str(index(y,10-y,z))+" 0\n")
+                        f.write ("-"+str(index(x,8-x,z))+" -"+str(index(y,8-y,z))+" 0\n")
 
         for x1 in range (9):
             for x2 in range (9):
@@ -110,10 +110,12 @@ random.shuffle(b)
 i = 0
 while(True):
     var2[b[i]] = 0
-    print (var2)
+    #print (var2)
     if(test(var2) == 0):
         var2[b[i]] = var1[b[i]] #could use just swap mechanism
     i=i+1
-    print (var2)
+    if (i==81):
+        print (var2)
+
     if i==81:
         break
