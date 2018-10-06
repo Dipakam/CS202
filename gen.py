@@ -23,7 +23,7 @@ with open("cnf.txt", "w") as f:
     for i in range (9):
         for j in range (9):
             if ((var[9*i+j])>0):
-                f.write(str(index(i,j,(var[9*i+j])-1))+" 0\n")
+                f.write(str(index(i,j,(var[9*i+j])))+" 0\n")
 
 
     for x in range (9):
@@ -66,7 +66,7 @@ with open("cnf.txt", "w") as f:
         for y in range (9):
             if (x < y):
                 for z in range (9):
-                    f.write ("-"+str(index(x,10-x,z))+" -"+str(index(y,10-y,z))+" 0\n")
+                    f.write ("-"+str(index(x,8-x,z))+" -"+str(index(y,8-y,z))+" 0\n")
 
     for x1 in range (9):
         for x2 in range (9):
