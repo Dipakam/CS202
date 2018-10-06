@@ -1,15 +1,21 @@
 import os
 
 with open("cnf.txt", "w") as f:
+    count = 0
+    k=input()
+    var=k.rsplit(" ")
+    for i in range (9):
+        for j in range (9):
+            if (int(var[9*i+j])>0):
+                count = count +1
 
-    f.write ("p cnf 729 36450 \n")
+    f.write ("p cnf 729 "+str(36450+count)+"\n")
 
     def index(i,j,k):
         return ((i)*9+j)*9+k+1
 
 
-    k=input()
-    var=k.rsplit(" ")
+
     for i in range (9):
         for j in range (9):
             if (int(var[9*i+j])>0):
@@ -81,7 +87,7 @@ with open("out.txt", "r") as fo:
 
                 for k in range(9):
                     if (int(var[index(i,j,k)-1]) > 0):
-                        print (k+1,end = "")
+                        print (k+1,end = " ")
                         continue;
             print("\n")
     else:
