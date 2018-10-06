@@ -9,7 +9,7 @@ with open("cnf.txt", "w") as f:
             if (int(var[9*i+j])>0):
                 count = count +1
 
-    f.write ("p cnf 729 "+str(36450+count)+"\n")
+    f.write ("p cnf 729 "+str(18346+count)+"\n")
 
     def index(i,j,k):
         return ((i)*9+j)*9+k+1
