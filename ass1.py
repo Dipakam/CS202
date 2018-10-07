@@ -1,9 +1,22 @@
 import os
 
+with open("quest.txt","r") as inpt:
+    inp = inpt.read()
+    array = inp.rsplit("\n")
+    var = []
+    for x in array:
+        str1 = x.rsplit(" ")
+        for c in str1:
+            if (c == "."):
+                var.append("0")
+            else:
+                var.append(c)
+
+inpt.close()
+
+
 with open("cnf.txt", "w") as f:
     count = 0
-    k=input()
-    var=k.rsplit(" ")
     for i in range (9):
         for j in range (9):
             if (int(var[9*i+j])>0):
