@@ -71,10 +71,10 @@ with open("cnf.txt", "w") as f:
 
     for x1 in range (9):
         for x2 in range (9):
-            if ((x1/3) == (x2/3)):
+            if (int(x1/3) == int(x2/3)):
                 for y1 in range (9):
                     for y2 in range (9):
-                        if ((y1/3) ==(y2/3)):
+                        if (int(y1/3) ==int(y2/3)):
                             if ((x1 != x2) or (y1 != y2)):
                                 for z in range (9):
                                     f.write ("-"+str(index(x1,y1,z))+" -"+str(index(x2,y2,z))+" 0\n")
@@ -176,10 +176,10 @@ def test1(a):
 
         for x1 in range (9):
             for x2 in range (9):
-                if ((x1/3) == (x2/3)):
+                if (int(x1/3) == int(x2/3)):
                     for y1 in range (9):
                         for y2 in range (9):
-                            if ((y1/3) ==(y2/3)):
+                            if (int(y1/3) ==int(y2/3)):
                                 if ((x1 != x2) or (y1 != y2)):
                                     for z in range (9):
                                         f.write ("-"+str(index(x1,y1,z))+" -"+str(index(x2,y2,z))+" 0\n")
@@ -215,7 +215,10 @@ while(True):
 print("Random minimal sudoku+ is ...\n")
 for i in range(9):
     for j in range(9):
-        print(var2[i*9+j],end=" ")
+        if(var2[i*9+j] == 0):
+            print("_ ",end = "")
+        else:
+            print(var2[i*9+j],end=" ")
     print("\n")
 
 print("The solution to the minimal sudoku+ is .....\n")
